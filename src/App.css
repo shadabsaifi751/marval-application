@@ -1,0 +1,117 @@
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav.raised{
+    background: linear-gradient(to right, #f23637 0%, #fc0b68 100%);
+    box-shadow: 0 1px 3px 0 rgba(0 0 0 , 10%), 0 1px 2px 0 rgba(0 0 0 , 6%);
+    color: rgb(255, 255, 255);
+}
+nav.backdropcolor{
+  -webkit-backdrop-filter: saturate(1.8) blur(5px);
+    backdrop-filter: saturate(1.8) blur(5px);
+    box-shadow: 0 1px 3px 0 rgba(0 0 0 , 10%), 0 1px 2px 0 rgba(0 0 0 , 6%);
+  background:linear-gradient(to right, rgba(32, 32, 32, 0.8) 0%, rgba(34, 34, 34, 0.8) 100%);
+  color: #fff;
+}
+Nav li a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 14px;
+}
+Nav li a:hover{
+  color: #fff;
+}
+Nav li{
+ padding:8px 0;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+nav a {
+  padding: 0rem 1rem;
+  font-weight: 600;
+}
+.phone-menu{
+  display: none;
+}
+@media(max-width: 992px){
+.phone-menu span {
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  display: block;
+  transition: all ease .5s;
+  }
+  .phone-menu {
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+  transition: all ease 0.5s;
+  }
+  .phone-menu span:nth-child(2) {
+  margin: 6px 0;
+  }
+  .navopen .phone-menu  span:first-child {
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      position: absolute;
+      top: 16px;
+      }
+      .navopen .phone-menu span:last-child {
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      position: absolute;
+      top: 16px;
+      }
+      .navopen .phone-menu span:nth-child(2) {
+        transform: rotate(45deg);
+        top: 10px;
+      }
+  header {
+      /* padding: 20px; */
+  }
+  .phone-menu{
+    display: block;
+    height: 38px;
+    margin: auto 0;
+;}
+  .right-menu, .left-menu{display: none;}
+}
+@media (max-width:992px){
+  .navclosed ul{
+    transform: translateX(100%);
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    padding: 4rem;
+    width: 0;
+  }
+  nav.navopen ul {
+    display: block;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    background: linear-gradient(to right, #161616 0%, #161616 100%);
+    height: 100vh;
+    width: 300px;
+    padding: 4rem;
+    transform: translateX(0);
+    transition: all ease 0.5s;
+    z-index: 99;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
+}
+}
