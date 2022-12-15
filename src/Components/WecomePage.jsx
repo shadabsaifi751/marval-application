@@ -96,7 +96,7 @@ const WecomePage = () => {
       </section>
       <section className="container mx-auto xl:px-4">
         <div className="flex flex-wrap">
-          <div className="basis-full md:basis-6/12 lg:basis-6/12 flex flex-col justify-center mb-10 md:mb-0  order-2 md:order-1">
+          <div className="basis-full md:basis-6/12 lg:basis-6/12 flex flex-col justify-center mb-10 md:mb-0  order-2 md:order-none">
             <h2 className='text-center md:text-start font-sans leading-none capitalize text-3xl md:text-5xl tracking-wide mb-5 font-normal	'>Watch everywhere.</h2>
             <p className='text-center md:text-start text-xl md:text-2xl mb-4 font-light	'>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
           </div>
