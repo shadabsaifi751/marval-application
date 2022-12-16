@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { showSuccessPopup } from "../store/Action/SuccessPopup";
 
 
 const LoginPage = () => {
@@ -36,12 +37,15 @@ const LoginPage = () => {
 
 
         if (response.user) {
-            showToastMessage()
+            
             localStorage.setItem('token', response.user)
             // dispatch(<SuccessPopup message={"Login Successfull"} />);
             // window.location.href='/home'
             navigate('/')
             location.reload()
+            dispatch(
+                showSuccessPopup("Login Successfull !")
+              );
         } else {
             alert('please check your username and password')
             // window.location.href='/login'

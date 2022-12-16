@@ -1,22 +1,26 @@
 import axios from "axios";
-import SuccessPopup from "../../../Common/SuccessPopup";
-import { fetchDataLoading,fetchDataSuccess,fetchDataError, latestMoviesDataLoading, latestMoviesDataSuccess, latestMoviesDataError, UpcommingMoviesDataSuccess,UpcommingMoviesDataLoading, UpcommingMoviesDataError, WebSeriesDataLoading, WebSeriesDataError, WebSeriesDataSuccess } from "./Action";
+import { showSuccessPopup } from "../SuccessPopup";
+import { fetchDataLoading, fetchDataSuccess, fetchDataError, latestMoviesDataLoading, latestMoviesDataSuccess, latestMoviesDataError, UpcommingMoviesDataSuccess, UpcommingMoviesDataLoading, UpcommingMoviesDataError, WebSeriesDataLoading, WebSeriesDataError, WebSeriesDataSuccess } from "./Action";
 
 export function fetchProducts() {
-    return dispatch => {
-      dispatch(fetchDataLoading());
-      axios
-        .get(
-          "https://api.themoviedb.org/3/movie/top_rated?api_key=d0c23e9309c4c34ce21eae28c7aaeb1c"
-        )
-        .then(response => {
-          dispatch(fetchDataSuccess(response.data.results));
-          // console.log(response.data.results,"line13")
-        })
-        .catch(error => {
-          dispatch(fetchDataError(error));
-        });
-    };
+  return dispatch => {
+    dispatch(fetchDataLoading());
+    axios
+      .get(
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=d0c23e9309c4c34ce21eae28c7aaeb1c"
+      )
+      .then(response => {
+        dispatch(fetchDataSuccess(response.data.results));
+        // console.log(response.data.results,"line13")
+
+        dispatch(
+          showSuccessPopup("Data Successfull !")
+        );
+      })
+      .catch(error => {
+        dispatch(fetchDataError(error));
+      });
+  };
 }
 
 export function LatestMovies() {
@@ -62,7 +66,7 @@ export function WebSeries() {
       .then(response => {
         dispatch(WebSeriesDataSuccess(response.data.results));
         // console.log(response.data.results,"line63")
-       
+
       })
       .catch(error => {
         dispatch(WebSeriesDataError(error));

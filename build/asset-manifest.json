@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.847fcb1f.css",
+    "main.js": "/static/js/main.8b3facde.js",
+    "static/js/787.6eafd488.chunk.js": "/static/js/787.6eafd488.chunk.js",
+    "static/media/img1.png": "/static/media/img1.f933408269a2c917e9cb.png",
+    "static/media/img4.png": "/static/media/img4.923892448714f4716ade.png",
+    "static/media/img3.png": "/static/media/img3.9bac0fc0e6eeff75f436.png",
+    "static/media/img2.png": "/static/media/img2.1e833edf738e796645fd.png",
+    "static/media/banner.jpg": "/static/media/banner.c739326850fe87ff6e4d.jpg",
+    "static/media/video-tv-in-0819.m4v": "/static/media/video-tv-in-0819.4c1a4787988d23b1039c.m4v",
+    "static/media/banner4.jpg": "/static/media/banner4.0c28dc3240c76d60e009.jpg",
+    "static/media/device-pile-in.png": "/static/media/device-pile-in.ff81d825b399d890f9b4.png",
+    "static/media/banner5.jpg": "/static/media/banner5.a63f03754235e2c5c91b.jpg",
+    "static/media/banner_img.jpg": "/static/media/banner_img.15021a3fde5b0baed28c.jpg",
+    "static/media/banner-3.jpg": "/static/media/banner-3.244ac3a8231d00cd67de.jpg",
+    "static/media/video-devices-in.m4v": "/static/media/video-devices-in.81bb66955f7e9654e354.m4v",
+    "static/media/mobile-0819.jpg": "/static/media/mobile-0819.063578d5b6d5ab4155ec.jpg",
+    "static/media/logohalk.png": "/static/media/logohalk.665b7165f8239c1d085b.png",
+    "static/media/tv.png": "/static/media/tv.0049bc70babc1f94cf88.png",
+    "static/media/img.png": "/static/media/img.30b4224e7cc26f7f2416.png",
+    "static/media/Logo.svg": "/static/media/Logo.a44fe8b07d6e4569d089dee50c56d18a.svg",
+    "index.html": "/index.html",
+    "static/media/index.cjs": "/static/media/index.cd351d7c31d0d3fccf96.cjs",
+    "main.847fcb1f.css.map": "/static/css/main.847fcb1f.css.map",
+    "main.8b3facde.js.map": "/static/js/main.8b3facde.js.map",
+    "787.6eafd488.chunk.js.map": "/static/js/787.6eafd488.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.847fcb1f.css",
+    "static/js/main.8b3facde.js"
+  ]
+}

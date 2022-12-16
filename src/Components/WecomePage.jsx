@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Tv from "../Accects/tv.png"
 import device from "../Accects/device-pile-in.png"
 import video from "../Accects/video-devices-in.m4v"
@@ -36,8 +36,7 @@ const accordionData = [
   }
 ]
 
-// const { title, content } = accordionData;
-console.log(accordionData)
+
 
 const WecomePage = () => {
 
@@ -46,6 +45,9 @@ const WecomePage = () => {
   function AccordianHandle(index) {
     setAccordian(accordian === index ? -1 : index)
   }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <>
       <header className="mt-5 h-screen bg-white Netflix">
@@ -137,15 +139,15 @@ const WecomePage = () => {
                 {
                   accordionData.map((item, index) => {
                     return (
-                      <div className="accordian  p-5 mb-3" key={index}>
+                      <div className="accordian px-3 py-2 md:p-5 mb-3" key={index}>
                         <div
                           className="flex justify-between items-center cursor-pointer"
                           onClick={() => AccordianHandle(index)}
                         >
-                          <div className='text-2xl'>{item.title}</div>
-                          <i className='text-3xl'>{accordian === index ? '-' : '+'}</i>
+                          <div className='text-base md:text-2xl'>{item.title}</div>
+                          <i className='text-xl md:text-3xl'>{accordian === index ? '-' : '+'}</i>
                         </div>
-                        {accordian === index ? <p className='mt-5 text-xl'>{item.content}</p> : ""}
+                        {accordian === index ? <p className='mt-5 text-base md:text-xl'>{item.content}</p> : ""}
                       </div>
                     )
                   })
@@ -153,8 +155,8 @@ const WecomePage = () => {
               </div>
               <p className="text-center text-xl mb-4 font-light	">Ready to watch? Enter your email to create or restart your membership.</p>
               <div className="block mx-auto text-center">
-                <input type="search" placeholder='Email address' className='form-control w-full md:w-96 p-3 text-zinc-900	border-none h-16	outline-none mb-5 md:mb-0' />
-                <button type='button' className='bg-rose-600 p-5 h-16	'>Get Started </button>
+                <input type="search" placeholder='Email address' className='form-control w-full md:w-96 p-3 text-zinc-900	border-none h-10 md:h-16	outline-none mb-5 md:mb-0' />
+                <button type='button' className='bg-rose-600 p-2 rounded md:p-5 h-10 md:h-16	'>Get Started </button>
               </div>
             </div>
           </div>
