@@ -14,7 +14,7 @@ import { PulseLoader, SyncLoader } from "react-spinners";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 const style = {
-    card: `border basis-1/2 md:basis-1/4 lg:basis-1/4  border-slate-600 shadow-sm rounded`,
+    card: `border basis-1/2 md:basis-1/4 lg:basis-1/4  border-slate-600 shadow-sm rounded-md`,
     error: `text-center font-medium text-sm`,
     text: `text-sm font-medium p-3`,
     loader: `column`
@@ -99,13 +99,13 @@ const LatestMovie = () => {
             <div className="section mt-16">
                 <div className="container mx-auto xl:px-4">
                     <div className="flex justify-between">
-                        <h4 className="text-xl lg:text-3xl font-normal">Trending In Movies</h4>
-                        <button type="button" className="py-2 px-2 lg:py-2 lg:px-4 text-sm lg:text-lg bg-button rounded" onClick={handle}>More Movies</button>
+                        <h4 className="text-base  lg:text-3xl font-normal">Trending In Movies</h4>
+                        <button type="button" className="py-2 px-2 lg:py-2 lg:px-3 text-sm lg:text-lg bg-button rounded" onClick={handle}>More Movies</button>
                     </div>
                     <div className="relative">
                         <Swiper
                             modules={[Navigation, Pagination, Autoplay]}
-                            slidesPerView={2}
+                            slidesPerView={1}
                             spaceBetween={25}
                             slidesPerGroup={5}
                             loop={true}
@@ -117,8 +117,8 @@ const LatestMovie = () => {
                             breakpoints={{
                                 1280: {
                                     width: 1280,
-                                    slidesPerView: 5,
-                                    slidesPerGroup: 5
+                                    slidesPerView: 4,
+                                    slidesPerGroup: 4
                                 },
                                 // when window width is >= 768px
                                 768: {
@@ -134,8 +134,8 @@ const LatestMovie = () => {
                                 },
                                 320: {
                                     width: 320,
-                                    slidesPerView: 2,
-                                    slidesPerGroup: 2,
+                                    slidesPerView: 1,
+                                    slidesPerGroup: 1,
                                     spaceBetween: 50
                                 },
                             }}
@@ -154,7 +154,7 @@ const LatestMovie = () => {
                                                     <Link to={`/detail/${item.id}`}>
                                                         <div className={style.card} key={item.id}>
                                                             <div className="overflow-hidden">
-                                                                <img src={API_img + item.backdrop_path} alt="" className=" h-80 w-full object-cover img-fluid" />
+                                                                <img src={API_img + item.backdrop_path} alt="" className=" h-40 w-full object-cover img-fluid" />
                                                             </div>
                                                             {/* <h4 className={style.text}>{item.title}</h4>
                                                         <p className=""></p> */}

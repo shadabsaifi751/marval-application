@@ -10,7 +10,8 @@ import "swiper/css/navigation";
 
 
 // import required modules
-import { Pagination, Navigation } from "swiper";
+// import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
 import { PulseLoader, SyncLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/Action/Movies";
@@ -87,45 +88,44 @@ const PopularMovies = () => {
             <div className="section mt-16">
                 <div className="container mx-auto xl:px-4">
                     <div className="flex justify-between">
-                        <h4 className="text-xl lg:text-3xl font-normal">Popular Web Shows</h4>
-                        <button className="py-2 px-2 lg:py-2 lg:px-4 text-sm lg:text-lg bg-button rounded" onClick={handle}>More Movies</button>
+                        <h4 className="text-base lg:text-3xl font-normal">Popular Web Shows</h4>
+                        <button className="py-2 px-2 lg:py-2 lg:px-3 text-sm lg:text-lg bg-button rounded" onClick={handle}>More Movies</button>
                     </div>
                     <div className="relative">
                         <Swiper
-                            slidesPerView={5}
+                           modules={[Navigation, Pagination, Autoplay]}
+                            slidesPerView={1}
                             spaceBetween={25}
                             slidesPerGroup={5}
                             loop={true}
-                            autoplay={true}
+                            autoplay={{ delay: 5000 }}
                             loopFillGroupWithBlank={true}
                             pagination={false}
                             navigation={true}
-                            modules={[Pagination, Navigation]}
                             className="mySwiper mt-7"
                             breakpoints={{
-                                // when window width is >= 640px
                                 1280: {
                                     width: 1280,
-                                    slidesPerView: 5,
-                                    slidesPerGroup:5
+                                    slidesPerView: 4,
+                                    slidesPerGroup: 4
                                 },
                                 // when window width is >= 768px
                                 768: {
                                     width: 768,
                                     slidesPerView: 2,
-                                    slidesPerGroup:1
+                                    slidesPerGroup: 1
                                 },
                                 640: {
                                     width: 640,
                                     slidesPerView: 2,
-                                    slidesPerGroup:2,
-                                    spaceBetween:50
+                                    slidesPerGroup: 2,
+                                    spaceBetween: 50
                                 },
                                 320: {
                                     width: 320,
-                                    slidesPerView: 2,
-                                    slidesPerGroup:2,
-                                    spaceBetween:50
+                                    slidesPerView: 1,
+                                    slidesPerGroup: 1,
+                                    spaceBetween: 50
                                 },
                             }}
                         >
@@ -138,7 +138,7 @@ const PopularMovies = () => {
                                                     <Link to={`/detail2/${item.id}`}>
                                                         <div className={style.card}>
                                                             <div className=" overflow-hidden">
-                                                                <img src={API_img+item.backdrop_path} alt="" className=" h-80 w-full object-cover img-fluid" />
+                                                                <img src={API_img+item.backdrop_path} alt="" className=" h-40 w-full object-cover img-fluid" />
                                                             </div>
                                                         </div>
                                                     </Link>
