@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link, useNavigate } from 'react-router-dom'
-
+import "./LatestMovies.scss"
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -16,7 +16,7 @@ import { PulseLoader, SyncLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/Action/Movies";
 const style = {
-    card: `border basis-1/4 border-slate-600 shadow rounded`,
+    card: `border basis-1/4 border-slate-600 shadow-lg overflow-hidden shadow-indigo-500/40 rounded`,
     error: `text-center font-medium text-sm`,
     text: `text-sm font-medium p-3`,
     loader: `column`
@@ -30,21 +30,21 @@ const PopularMovies = () => {
     const [searchInput, setSearchInput] = useState('')
 
     const dispatch = useDispatch();
-  const { Count, data, MoviesDataLoading, MoviesData, MoviesDataSuccess, MoviesDataError } = useSelector((state) => {
-    return {
-      MoviesDataLoading: state.MovieData.loading,
-      MoviesDataError: state.MovieData.error,
-      MoviesDataSuccess: state.MovieData.success,
-      MoviesData: state.MovieData.data,
-    }
-  })
+    const { Count, data, MoviesDataLoading, MoviesData, MoviesDataSuccess, MoviesDataError } = useSelector((state) => {
+        return {
+            MoviesDataLoading: state.MovieData.loading,
+            MoviesDataError: state.MovieData.error,
+            MoviesDataSuccess: state.MovieData.success,
+            MoviesData: state.MovieData.data,
+        }
+    })
 
-  // console.log(MoviesDataLoading, MoviesDataSuccess, MoviesData, "line33");
+    // console.log(MoviesDataLoading, MoviesDataSuccess, MoviesData, "line33");
 
 
-  useEffect(() => {
-    dispatch(fetchProducts())
-  },[fetchProducts,dispatch])
+    useEffect(() => {
+        dispatch(fetchProducts())
+    }, [fetchProducts, dispatch])
 
     // const MarvelApi = async () => {
     //     setLoading(true)
@@ -64,7 +64,7 @@ const PopularMovies = () => {
     // }, []);
 
 
-    
+
     // const API_URL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=d0c23e9309c4c34ce21eae28c7aaeb1c';
     const API_img = 'https://image.tmdb.org/t/p/w500'
 
@@ -88,14 +88,14 @@ const PopularMovies = () => {
             <div className="section mt-16">
                 <div className="container mx-auto xl:px-4">
                     <div className="flex justify-between">
-                        <h4 className="text-base lg:text-3xl font-normal">Popular Web Shows</h4>
-                        <button className="py-2 px-2 lg:py-2 lg:px-3 text-sm lg:text-lg bg-button rounded" onClick={handle}>More Movies</button>
+                        <h4 className="text-base lg:text-2xl font-normal">Popular Web Shows</h4>
+                        <button className="py-2 px-2 lg:py-1 lg:px-3 text-sm lg:text-sm bg-button rounded" onClick={handle}>More Movies</button>
                     </div>
-                    <div className="relative">
+                    <div className="relative latest-movies-wrap">
                         <Swiper
-                           modules={[Navigation, Pagination, Autoplay]}
+                            modules={[Navigation, Pagination, Autoplay]}
                             slidesPerView={1}
-                            spaceBetween={25}
+                            spaceBetween={30}
                             slidesPerGroup={5}
                             loop={true}
                             autoplay={{ delay: 5000 }}
@@ -119,13 +119,13 @@ const PopularMovies = () => {
                                     width: 640,
                                     slidesPerView: 2,
                                     slidesPerGroup: 2,
-                                    spaceBetween: 50
+                                    spaceBetween: 10
                                 },
                                 320: {
                                     width: 320,
                                     slidesPerView: 1,
                                     slidesPerGroup: 1,
-                                    spaceBetween: 50
+                                    spaceBetween: 10
                                 },
                             }}
                         >
@@ -136,9 +136,12 @@ const PopularMovies = () => {
                                             MoviesData.map((item) => (
                                                 <SwiperSlide key={item.id}>
                                                     <Link to={`/detail2/${item.id}`}>
-                                                        <div className={style.card}>
-                                                            <div className=" overflow-hidden">
-                                                                <img src={API_img+item.backdrop_path} alt="" className=" h-40 w-full object-cover img-fluid" />
+                                                        <div className={`MovieCard relative ${style.card}`} key={item.id}>
+                                                            <div className="">
+                                                                <img src={API_img + item.backdrop_path} alt="" className=" h-40 w-full object-cover img-fluid" />
+                                                            </div>
+                                                            <div className="img-overlay hidden z-10 hover:backdrop-blur-sm h-full w-full hover:bg-[rgba(0,0,0,0.5)] absolute top-0 left-0 text-center items-center">
+                                                                <h4 className={style.text}>{item.title}</h4>
                                                             </div>
                                                         </div>
                                                     </Link>
@@ -149,7 +152,7 @@ const PopularMovies = () => {
                                 )
                             }
                             {
-                                MoviesDataLoading && 
+                                MoviesDataLoading &&
                                 (<div className="Loading flex justify-center items-center h-80 w-full">
                                     <PulseLoader color="#c70000" />
                                 </div>)

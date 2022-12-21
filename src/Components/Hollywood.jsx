@@ -75,11 +75,11 @@ const Hollywood = () => {
       </div>
       <div className="container mx-auto xl:px-4 min-h-[75vh]">
 
-        <h1 className="mb-10 mt-10">{data}</h1>
+     {/*   <h1 className="mb-10 mt-10">{data}</h1>
 
         <button onClick={() => dispatch(Increment())} className="bg-slate-300 text-red-700 mr-3 border-r-8 p-2">Increment</button>
         <button onClick={() => dispatch(Decrement())} disabled={disabled} className="bg-slate-300 text-red-700 mr-3 border-r-8 p-2">decrement</button>
-
+  */}
 
 
         {

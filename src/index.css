@@ -268,12 +268,14 @@ border: none;
     scrollbar-width: none; /* Firefox */
   }
   .swiper-button-next{
-    right: -7px !important;
-    z-index: 1 !important;
+    /* right: -7px !important;
+    z-index: 1 !important; */
+    display: none !important;
   }
   .swiper-button-prev {
-    left: -7px !important;
-    z-index: 1 !important;
+    /* left: -7px !important;
+    z-index: 1 !important; */
+    display: none !important;
   }
   .content img{
     bottom: 142px;

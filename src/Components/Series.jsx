@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { PulseLoader } from 'react-spinners';
-import img from "../Accects/img.png"
+import img from "../Accects/banner/dummyfile.jpg"
 import { WebSeries } from '../store/Action/Movies';
 import Loader from './Loader';
+import "./Welcome.scss"
 
 const style = {
   card: `border basis-1/4 border-Neutral-200 shadow rounded-sm overflow-hidden`,
@@ -40,7 +41,9 @@ const Series = () => {
   function truncate(str) {
     return str.length > 15 ? str.substring(0, 15) + "..." : str;
   }
-
+  function truncateDis(str) {
+    return str.length > 320 ? str.substring(0, 320) + "..." : str;
+}
   const HandleMore = () => {
     setNext(next + ImagePerRow)
   }
@@ -102,11 +105,15 @@ const Series = () => {
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 h-1/2">
                 {filterItem?.slice(0, next).map((item,key) => (
                   <Link to={`/detail/${item.id}`}>
-                    <div className={style.card} key={key}>
-                      <div className="overflow-hidden">
-                        <img src={API_img + item?.backdrop_path} alt={item.title} className="object-cover h-64 w-full block img-fluid" />
-                      </div>
-                      <h5 className={`${style.text} bg-Neutral-500 border-t-stone-50`}>{truncate(item.title)}</h5>
+                    <div className={`MovieCard relative ${style.card}`} key={key}>
+                    <div className="overflow-hidden">
+                    <span class="bg-yellow-400 text-xs font-bold rounded-xl p-2 z-10 text-gray-700 absolute right-3 top-3"> {item.vote_average ? item.vote_average : '0'}</span>
+                        <img src={API_img+item.backdrop_path ? API_img+item.backdrop_path : img} alt="" className="img-fluid w-full block h-64 object-cover" />
+                    </div>
+                    <div className="img-overlay hidden z-10 hover:backdrop-blur-sm h-full w-full hover:bg-[rgba(0,0,0,0.5)] absolute top-0 left-0">
+                    <h4 className={`${style.text} bg-Neutral-500 border-t-stone-300`}>{truncate(item.title)}</h4>
+                    <p className='text-xs p-3'>{truncateDis(item.overview ? item.overview :"")}</p>
+                    </div>
                     </div>
                   </Link>
                 ))

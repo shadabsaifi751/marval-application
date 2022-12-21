@@ -104,3 +104,18 @@
         width: 100%;
     }
 }
+
+
+.MovieCard{
+    .img-overlay{
+        transition: all 0.3s linear;
+        height: 0;
+    }
+    &:hover{
+        .img-overlay{
+            display: block;
+            z-index: 9;
+            height: 100%;
+        }
+    }
+}

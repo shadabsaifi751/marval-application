@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { LatestMovies } from '../store/Action/Movies';
 import Loader from "./Loader";
+import img from "../Accects/banner/dummyfile.jpg"
 
 const style = {
-    card: `border basis-1/4 border-Neutral-200 shadow rounded-sm overflow-hidden`,
+    card: `border basis-1/4 border-Neutral-200 shadow  rounded-lg overflow-hidden relative`,
     error: `text-center font-medium text-sm`,
     text: `text-sm font-medium p-3 h-12 overflow-hidden text-ellipsis`,
     loader: `column`
@@ -34,6 +35,9 @@ const Movies = () => {
 
     function truncate(str) {
         return str.length > 18 ? str.substring(0, 18) + "..." : str;
+    }
+    function truncateDis(str) {
+        return str.length > 320 ? str.substring(0, 320) + "..." : str;
     }
     // public key e84f571b00b8c70f7a2dc2c9d4cd22b8
     //private key a113856e5528662d4d297695b8c226de0f2d9d14
@@ -97,11 +101,15 @@ const Movies = () => {
                                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
                                     {filterItem.length > 0 && filterItem.map((item) => (
                                         <Link to={`/detail/${item.id}`}>
-                                        <div className={style.card} key={item.id}>
+                                        <div className={`MovieCard ${style.card}`} key={item.id}>
                                             <div className="overflow-hidden">
-                                                <img src={API_img+item.backdrop_path} alt="" className="img-fluid w-full block h-64 object-cover" />
+                                            <span class="bg-yellow-400 text-xs font-bold rounded-xl p-2 z-10 text-gray-700 absolute right-3 top-3"> {item.vote_average ? item.vote_average : '0'}</span>
+                                                <img src={API_img+item.backdrop_path ? API_img+item.backdrop_path : img} alt="" className="img-fluid w-full block h-64 object-cover" />
                                             </div>
+                                            <div className="img-overlay hidden z-10 hover:backdrop-blur-sm h-full w-full hover:bg-[rgba(0,0,0,0.5)] absolute top-0 left-0">
                                             <h4 className={`${style.text} bg-Neutral-500 border-t-stone-300`}>{truncate(item.title)}</h4>
+                                            <p className='text-xs p-3'>{truncateDis(item.overview ? item.overview :"")}</p>
+                                            </div>
                                         </div>
                                         </Link>
                                     ))}

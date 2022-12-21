@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { LatestMovies } from '../store/Action/Movies';
 // Import Swiper styles
+import "./LatestMovies.scss"
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -14,7 +15,7 @@ import { PulseLoader, SyncLoader } from "react-spinners";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 const style = {
-    card: `border basis-1/2 md:basis-1/4 lg:basis-1/4  border-slate-600 shadow-sm rounded-md`,
+    card: `border basis-1/2 md:basis-1/4 lg:basis-1/4  border-slate-600 shadow-lg overflow-hidden shadow-indigo-500/40 rounded-md`,
     error: `text-center font-medium text-sm`,
     text: `text-sm font-medium p-3`,
     loader: `column`
@@ -99,14 +100,14 @@ const LatestMovie = () => {
             <div className="section mt-16">
                 <div className="container mx-auto xl:px-4">
                     <div className="flex justify-between">
-                        <h4 className="text-base  lg:text-3xl font-normal">Trending In Movies</h4>
-                        <button type="button" className="py-2 px-2 lg:py-2 lg:px-3 text-sm lg:text-lg bg-button rounded" onClick={handle}>More Movies</button>
+                        <h4 className="text-base  lg:text-2xl font-normal">Trending In Movies</h4>
+                        <button type="button" className="py-2 px-2 lg:py-1 lg:px-3 text-sm lg:text-sm bg-button rounded" onClick={handle}>More Movies</button>
                     </div>
-                    <div className="relative">
+                    <div className="relative latest-movies-wrap">
                         <Swiper
                             modules={[Navigation, Pagination, Autoplay]}
                             slidesPerView={1}
-                            spaceBetween={25}
+                            spaceBetween={30}
                             slidesPerGroup={5}
                             loop={true}
                             autoplay={{ delay: 5000 }}
@@ -130,13 +131,13 @@ const LatestMovie = () => {
                                     width: 640,
                                     slidesPerView: 2,
                                     slidesPerGroup: 2,
-                                    spaceBetween: 50
+                                    spaceBetween: 10
                                 },
                                 320: {
                                     width: 320,
                                     slidesPerView: 1,
                                     slidesPerGroup: 1,
-                                    spaceBetween: 50
+                                    spaceBetween: 10
                                 },
                             }}
                         >
@@ -152,12 +153,13 @@ const LatestMovie = () => {
                                             LatestMoviesData.map((item) => (
                                                 <SwiperSlide>
                                                     <Link to={`/detail/${item.id}`}>
-                                                        <div className={style.card} key={item.id}>
-                                                            <div className="overflow-hidden">
+                                                        <div className={`MovieCard relative ${style.card}`} key={item.id}>
+                                                            <div className="">
                                                                 <img src={API_img + item.backdrop_path} alt="" className=" h-40 w-full object-cover img-fluid" />
                                                             </div>
-                                                            {/* <h4 className={style.text}>{item.title}</h4>
-                                                        <p className=""></p> */}
+                                                            <div className="img-overlay hidden z-10 hover:backdrop-blur-sm h-full w-full hover:bg-[rgba(0,0,0,0.5)] absolute top-0 left-0 text-center items-center">
+                                                                <h4 className={style.text}>{item.title}</h4>
+                                                            </div>
                                                         </div>
                                                     </Link>
                                                 </SwiperSlide>

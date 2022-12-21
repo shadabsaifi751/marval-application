@@ -12,6 +12,9 @@ module.exports = {
       //   'hero-pattern': "url('./src/Accects/banner.jpg')",
       //   'footer-texture': "url('./src/Accects/mobile-0819.jpg')",
       // }
+      colors: {
+        'regal-blue': 'rgba(0,0,0,0.5)',
+      },
     },
     container: {
       padding: {

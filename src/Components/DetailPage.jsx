@@ -1,7 +1,7 @@
 import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import dummyfileimg from '../Accects/dummyfileimg.jpg'
+import dummyfileimg from '../Accects/banner/dummyfile.jpg'
 import Loader from './Loader';
 
 // const findPalette = id => LatestMovies.find(palette => palette.id == id);
@@ -37,14 +37,14 @@ const DetailPage = () => {
             <div className="container mx-auto xl:px-4">
                 {
                     dataMarvel ?
-                        <div class="py-3 mb-6 mt-32  h-screen">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-4 lg:gap-2 shadow-lg border-gray-100 border sm:rounded-3xl p-8 md:space-x-8">
+                        <div class="py-3 mb-6 mt-32   min-h-1/2">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-4 lg:gap-2 shadow-lg border-gray-100 border rounded-xl sm:rounded-3xl overflow-hidden p-4 md:space-x-8">
                                 <div class="h-42 overflow-visible w-full">
                                     <img src={API_img + backdrop_path ? API_img + backdrop_path : dummyfileimg} alt="" class="rounded-3xl shadow-lg h-full w-full object-cover" />
                                 </div>
                                 <div class="flex flex-col space-y-4">
                                     <div class="flex justify-between items-start">
-                                        <h2 class="text-3xl font-bold">{original_title ? original_title : ''}</h2>
+                                        <h2 class="text-2xl md:text-3xl font-bold">{original_title ? original_title : ''}</h2>
                                         <div class="bg-yellow-400 font-bold rounded-xl p-2 text-gray-700"> {vote_average ? vote_average : ''}</div>
                                     </div>
                                     <h2 class="text-xl font-bold">{tagline ? tagline : ''}</h2>
@@ -53,7 +53,7 @@ const DetailPage = () => {
                                         <div class="text-lg text-gray-300">{status} {release_date ? release_date : ''}</div>
                                     </div>
                                     <p class=" text-gray-400 max-h-40 overflow-y-hidden">{overview ? overview : ''}</p>
-                                    <div class="flex justify-between text-2xl font-bold mt-4">
+                                    <div class="flex justify-between text-2xl font-bold mt-4 pb-4">
                                         <div>
                                             <a href={`${homepage}`} target="_blank" className='py-2 px-2 lg:py-2 lg:px-4 text-sm lg:text-md bg-transparent text-pink-50 border-pink-50 border rounded mr-3' rel="noreferrer">More Detail</a>
                                             <a href={`${homepage}`} target="_blank" className='py-2 px-2 lg:py-2 lg:px-4 text-sm lg:text-md bg-button rounded' rel="noreferrer">Watch Trailer</a>
