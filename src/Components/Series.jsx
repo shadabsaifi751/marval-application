@@ -96,7 +96,7 @@ const Series = () => {
             <h4 className="text-xl lg:text-3xl font-semibold mb-5 uppercase">LATEST Series</h4>
             <input type="search" placeholder="Search" onChange={(e) => setSearchInput(e.target.value)} className="py-2 px-2 w-80 text-red-500 bg-neutral-50 border outline-none border-red-500 rounded" />
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4 min-h-[75vh]">
+          <div className="flex flex-wrap items-start justify-center gap-4 min-h-[75vh]">
             {MoviesDataLoading &&  
             (<div className="Loading flex justify-center items-center h-80 w-full">
               <PulseLoader color="#c70000" />
@@ -120,7 +120,7 @@ const Series = () => {
                 }
               </div>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-start">
             {/* {
             Loading ? (
 
