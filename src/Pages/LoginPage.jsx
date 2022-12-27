@@ -29,7 +29,7 @@ const LoginPage = () => {
             password
         }
         // const response = await axios.post("https://dry-garden-97696.herokuapp.com/api/login", body).then((result) => {
-        const response = await axios.post("http://localhost:4000/api/login", body).then((result) => {
+        const response = await axios.post("http://44.201.201.178:4000/api/login", body).then((result) => {
             return result.data
         }).catch((error) => {
             console.log("error", error)

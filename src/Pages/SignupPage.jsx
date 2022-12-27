@@ -23,7 +23,7 @@ const SignupPage = () => {
             password
         }
         // const response = await axios.post("https://dry-garden-97696.herokuapp.com/api/register", body).then((result) => {
-        const response = await axios.post("http://localhost:4000/api/register", body).then((result) => {
+        const response = await axios.post("http://44.201.201.178:4000/api/register", body).then((result) => {
             return result.data;
         }).catch((error) => {
             console.log("error", error)
